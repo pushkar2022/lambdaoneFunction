@@ -4,7 +4,19 @@ provider:
   name: aws
   runtime: nodejs18.x
   region: us-east-1
- 
+
+custom:
+  # Loading env.json file
+  env: ${file(./ymlenv.json)}
+
+vpc:
+    securityGroupIds:
+      - ${self:custom.env.SECURITY_GROUP_ID}
+    subnetIds:
+      - ${self:custom.env.SUBNET1_ID}
+      - ${self:custom.env.SUBNET2_ID}
+      - ${self:custom.env.SUBNET3_ID}
+      - ${self:custom.env.SUBNET4_ID} 
 
 functions:
   getUser:
