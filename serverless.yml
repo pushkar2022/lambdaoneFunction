@@ -1,0 +1,19 @@
+service: get-user-info
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  region: us-east-1
+ 
+
+functions:
+  getUser:
+    handler: handler.getUser
+    events:
+      - http:
+          path: user
+          method: get
+          cors: true
+
+plugins:
+  - serverless-offline
