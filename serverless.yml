@@ -5,18 +5,13 @@ provider:
   runtime: nodejs18.x
   region: us-east-1
 
-custom:
-  # Loading env.json file
-  env: ${file(./ymlenv.json)}
-
-vpc:
+  vpc:
     securityGroupIds:
-      - ${self:custom.env.SECURITY_GROUP_ID}
+      - sg-01196cf96a9df8cf4     # RDS security group
     subnetIds:
-      - ${self:custom.env.SUBNET1_ID}
-      - ${self:custom.env.SUBNET2_ID}
-      - ${self:custom.env.SUBNET3_ID}
-      - ${self:custom.env.SUBNET4_ID} 
+      - subnet-0c72b548ad7f3fc68
+      - subnet-0c8f92f53358d3853
+      - subnet-0f7bee6df88fd4b4e
 
 functions:
   getUser:
