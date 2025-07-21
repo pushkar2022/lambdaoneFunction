@@ -10,16 +10,7 @@ module.exports.getUser = async (event) => {
 //     };
 //   }
 
-const client = new Client({
-  host: 'perksdb.cte08cuyuh6r.us-east-1.rds.amazonaws.com',
-  port: 5432,
-  user: 'postgres',
-  password:'AesAccdEtJgNTZNOpAlh',
-  database:'perksdev',
-  ssl: {
-    rejectUnauthorized: false, 
-  },
-});
+
 
 
 
